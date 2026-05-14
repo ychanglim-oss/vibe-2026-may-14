@@ -45,12 +45,25 @@
         <div class="chart-header">
           <h2>Market Performance & Projections</h2>
           <div class="chart-controls">
-            <select id="prediction-years" class="control-select">
-              <option value="0">History Only</option>
-              <option value="1">1 Year Projection</option>
-              <option value="5">5 Year Projection</option>
-              <option value="10" selected>10 Year Projection</option>
-            </select>
+            <div class="control-group">
+              <span class="control-label">Base Period:</span>
+              <select id="base-period" class="control-select">
+                <option value="all">All-Time</option>
+                <option value="1">Last 1 Year</option>
+                <option value="3">Last 3 Years</option>
+                <option value="5" selected>Last 5 Years</option>
+                <option value="10">Last 10 Years</option>
+              </select>
+            </div>
+            <div class="control-group">
+              <span class="control-label">Projection:</span>
+              <select id="prediction-years" class="control-select">
+                <option value="0">History Only</option>
+                <option value="1">1 Year</option>
+                <option value="5">5 Years</option>
+                <option value="10" selected>10 Years</option>
+              </select>
+            </div>
           </div>
         </div>
         <div class="chart-container">
