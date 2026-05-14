@@ -3,12 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
+  <title>Toto Random Number Generator</title>
   <link href='/style.css' rel='stylesheet'>
+  <style>
+    .theme-toggle {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: var(--card-bg);
+      border: 1px solid var(--primary-color);
+      color: var(--text-color);
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      transition: all var(--transition-speed);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+    }
+    .theme-toggle:hover {
+      box-shadow: var(--glow);
+      transform: translateY(-2px);
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+    <span class="icon">🌓</span>
+    <span class="label">Switch Theme</span>
+  </button>
+
+  <h1>Toto Random Number Generator</h1>
+  <toto-generator></toto-generator>
+  
   <script defer type="text/javascript" src="/main.js"></script>
 </body>
 </html>
