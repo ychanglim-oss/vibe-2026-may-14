@@ -130,7 +130,7 @@ class MarketUI {
             }
           },
           y: {
-            type: 'logarithmic', // Better for long-term financial data
+            type: 'linear', // Changed from logarithmic to show the exponential curve
             grid: { color: gridColor },
             ticks: { 
               color: textColor,
