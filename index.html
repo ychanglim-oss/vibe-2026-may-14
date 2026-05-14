@@ -3,42 +3,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Toto Random Number Generator</title>
-  <link href='/style.css' rel='stylesheet'>
-  <style>
-    .theme-toggle {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background: var(--card-bg);
-      border: 1px solid var(--primary-color);
-      color: var(--text-color);
-      padding: 0.5rem 1rem;
-      border-radius: 2rem;
-      cursor: pointer;
-      box-shadow: var(--shadow-md);
-      transition: all var(--transition-speed);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-weight: 600;
-    }
-    .theme-toggle:hover {
-      box-shadow: var(--glow);
-      transform: translateY(-2px);
-    }
-  </style>
+  <title>US Indices Predictor</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-    <span class="icon">🌓</span>
-    <span class="label">Switch Theme</span>
-  </button>
+  <header class="app-header">
+    <div class="header-content">
+      <div class="logo">
+        <span class="logo-icon">📈</span>
+        <h1>US Indices Predictor</h1>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <span class="icon">🌓</span>
+        <span class="label">Theme</span>
+      </button>
+    </div>
+  </header>
 
-  <h1>Toto Random Number Generator</h1>
-  <toto-generator></toto-generator>
-  
-  <script defer type="text/javascript" src="/main.js"></script>
+  <main class="dashboard">
+    <section class="market-overview">
+      <div class="card stat-card" data-index="nasdaq">
+        <h3>NASDAQ</h3>
+        <div class="price">--</div>
+        <div class="growth">--</div>
+      </div>
+      <div class="card stat-card" data-index="sp500">
+        <h3>S&P 500</h3>
+        <div class="price">--</div>
+        <div class="growth">--</div>
+      </div>
+      <div class="card stat-card" data-index="djia">
+        <h3>DJIA</h3>
+        <div class="price">--</div>
+        <div class="growth">--</div>
+      </div>
+    </section>
+
+    <section class="chart-section">
+      <div class="card chart-card">
+        <div class="chart-header">
+          <h2>Market Performance & Projections</h2>
+          <div class="chart-controls">
+            <select id="prediction-years" class="control-select">
+              <option value="0">History Only</option>
+              <option value="1">1 Year Projection</option>
+              <option value="5">5 Year Projection</option>
+              <option value="10" selected>10 Year Projection</option>
+            </select>
+          </div>
+        </div>
+        <div class="chart-container">
+          <canvas id="marketChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <section class="info-section">
+      <div class="card info-card">
+        <h3>Institutional Grade Predictions</h3>
+        <p>Projections are calculated using the <strong>Compound Annual Growth Rate (CAGR)</strong> based on all-time historical performance. This model assumes that the long-term trend of the indices will persist. However, markets are subject to volatility and external shocks.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <div class="footer-content">
+      <p>&copy; 2026 US Indices Predictor. For educational and informational purposes only. Investment involves risk.</p>
+    </div>
+  </footer>
+
+  <script defer type="module" src="/main.js"></script>
 </body>
 </html>

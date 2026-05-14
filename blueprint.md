@@ -1,45 +1,43 @@
-# Toto Random Number Generator
+# US Indices Predictor
 
-This document outlines the plan for creating a Toto random number generator web component with a modern Day/Night (Light/Dark) UI.
+This document outlines the plan and state of the US Indices Predictor web application.
 
 ## **Project Overview**
-The Toto Random Number Generator is a lightweight web application that allows users to generate random numbers for games like Toto (usually 6 numbers from 1-49). It leverages modern web standards like Web Components and CSS variables for a robust and themeable experience.
+The US Indices Predictor is a modern web application designed to visualize historical performance and predict future trends for the three major US stock market indices: NASDAQ Composite, Dow Jones Industrial Average (DJIA), and S&P 500.
+
+## **Features**
+*   **Historical Visualization:** Interactive multi-line charts showing index performance from 1980 to 2023.
+*   **Predictive Analysis:** CAGR-based projections for 1, 5, and 10-year timeframes.
+*   **Market Overview Dashboard:** Key statistics for each index, including all-time growth and average annual return.
+*   **Modern UI/UX:** Responsive design with professional financial aesthetics, oklch color palettes, and dark/light mode.
 
 ## **Version History**
 
-### **V1: Basic Random Number Generator**
-Initial version focusing on core functionality.
-*   **Custom Element:** `<toto-generator>` encapsulates the logic and UI.
-*   **Generation:** Generates 6 unique numbers from 1 to 49.
-*   **Shadow DOM:** Used for style encapsulation.
+### **V1: Initial Prototype (Current Request)**
+Transforming the workspace into a financial dashboard.
+*   **Data Layer:** Embedded historical dataset (1980-2023).
+*   **Visualization:** Chart.js integration for historical and projected data.
+*   **Theming:** Professional financial theme with glassmorphism.
 
-### **V2: Day/Night UI (Current)**
-Enhancing the user experience with a themeable interface.
+## **Implementation Plan**
 
-#### **Features**
-*   **Theme Toggle:** A button to switch between light and dark modes.
-*   **System Preference:** Automatically respects the user's OS color scheme preference.
-*   **Persistence:** Saves the user's theme choice in `localStorage`.
-*   **CSS Variables:** Centralized color management for easy theming across the application and Shadow DOM.
+### **1. Data Assembly & Structure**
+*   Integrate historical yearly close data for NASDAQ, DJIA, and S&P 500 (1980-2023).
+*   Calculate historical CAGR for each index.
 
-#### **Design**
-*   **Light Mode:** Clean, high-contrast UI with soft shadows and a professional feel.
-*   **Dark Mode:** Deep, low-light UI using modern color spaces (oklch) for eye comfort.
-*   **Visual Polish:** Multi-layered shadows and subtle gradients to create depth.
+### **2. UI Foundation (`index.html` & `style.css`)**
+*   Create a grid-based dashboard layout.
+*   Define a professional financial color palette using `oklch`.
+*   Implement container queries for chart responsiveness.
 
-#### **Implementation Plan**
-1.  **Define CSS Variables:**
-    *   Update `style.css` with `:root` variables for background, text, primary colors, and shadows.
-    *   Add a `[data-theme="dark"]` selector to override variables for dark mode.
-2.  **Global UI Updates:**
-    *   Modify `index.html` to include a theme toggle icon/button.
-    *   Add global styles for the `body` to handle background and transitions.
-3.  **JavaScript Logic:**
-    *   Implement theme switching logic in `main.js`.
-    *   Handle `localStorage` and system preference detection.
-4.  **Web Component Integration:**
-    *   Update the `<toto-generator>` internal styles in `main.js` to use the global CSS variables.
-    *   Add "glow" effects and animations for a "premium" feel as per `GEMINI.md`.
+### **3. Logical Engine (`main.js`)**
+*   Implement `MarketData` controller to handle datasets.
+*   Implement `PredictionEngine` for CAGR calculations.
+*   Initialize and manage Chart.js instance.
+
+### **4. Visualization & Polish**
+*   Configure Chart.js with custom tooltips and animations.
+*   Apply visual polish (shadows, transitions, glow effects).
 
 ---
 *Last updated: May 14, 2026*
